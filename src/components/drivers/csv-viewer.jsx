@@ -8,18 +8,21 @@ import CSV from 'comma-separated-values';
 class CsvViewer extends Component {
 
   static parse(data) {
+    const csvData = data.replaceAll('""', '"-"');
     const rows = [];
     const columns = [];
 
-    new CSV(data).forEach((array) => {
+    new CSV(csvData).forEach((array) => {
       if (columns.length < 1) {
         array.forEach((cell, idx) => {
+          console.log(cell, idx);
           columns.push({
             key: `key-${idx}`,
-            name: cell,
+            name: cell || '-',
             resizable: true,
-            sortable: true,
-            filterable: true,
+            sortable: false,
+            filterable: false,
+            minColumnWidth: 100,
           });
         });
       } else {
@@ -50,7 +53,7 @@ class CsvViewer extends Component {
         columns={columns}
         rowsCount={rows.length}
         rowGetter={i => rows[i]}
-        minHeight={this.props.height || 650}
+        minHeight={this.props.height || 1024}
       />
     );
   }
