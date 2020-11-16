@@ -21,7 +21,6 @@ class CsvViewer extends Component {
             resizable: true,
             sortable: false,
             filterable: false,
-            minColumnWidth: 100,
           });
         });
       } else {
@@ -53,6 +52,7 @@ class CsvViewer extends Component {
         rowsCount={rows.length}
         rowGetter={i => rows[i]}
         minHeight={this.props.height || 1024}
+        minColumnWidth={150}
       />
     );
   }
