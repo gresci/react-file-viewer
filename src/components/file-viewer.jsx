@@ -15,6 +15,7 @@ import {
   UnsupportedViewer,
   PhotoViewerWrapper,
   AudioViewer,
+  TiffViewer,
 } from './drivers';
 
 class FileViewer extends Component {
@@ -63,6 +64,11 @@ class FileViewer extends Component {
       }
       case 'wexbim': {
         return XBimViewer;
+      }
+      case 'tif':
+      case 'tiff': {
+        const newProps = Object.assign({}, this.props, { responseType: 'arraybuffer' });
+        return withFetching(TiffViewer, newProps);
       }
       default: {
         return UnsupportedViewer;

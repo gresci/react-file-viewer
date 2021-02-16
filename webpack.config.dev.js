@@ -26,7 +26,9 @@ module.exports = {
     modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'example_files'), 'node_modules'],
     extensions: ['.js', '.json', '.jsx'],
   },
-
+  node: {
+    fs: 'empty',
+  },
   module: {
     rules: [
       {

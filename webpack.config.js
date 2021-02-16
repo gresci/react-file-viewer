@@ -8,6 +8,10 @@ const APP_DIR = path.resolve(__dirname, './src');
 
 const config = {
   entry: `${APP_DIR}/components`,
+  node: {
+    fs: "empty",
+  },
+  target: 'web',
   output: {
     path: BUILD_DIR,
     filename: 'index.js',

@@ -1,6 +1,6 @@
 {
   "name": "@giorgioinkode/react-file-viewer",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Extendable file viewer for web",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -85,6 +85,7 @@
     "react-data-grid": "^6.1.0",
     "react-visibility-sensor": "^5.0.2",
     "three": "0.85.2",
+    "tiff.js": "^1.0.0",
     "xlsx": "^0.10.1"
   },
   "peerDependencies": {
@@ -119,6 +120,15 @@
       "import/resolver": {
         "webpack": "webpack.config.js"
       }
+    },
+    "browser": {
+      "crypto": false,
+      "fs": false,
+      "path": false,
+      "os": false,
+      "net": false,
+      "stream": false,
+      "tls": false
     }
   }
 }
